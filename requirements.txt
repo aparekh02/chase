@@ -1,0 +1,7 @@
+cadenza-lab
+lerobot[smolvla]
+open-clip-torch
+opencv-python-headless
+mujoco
+torch
+Pillow

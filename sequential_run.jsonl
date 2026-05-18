@@ -1,0 +1,15 @@
+{"ts": 1779064271.270067, "event": "session_start", "robot": "go1"}
+{"ts": 1779064272.207466, "event": "step_start", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 8.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779064316.514733, "event": "detect", "attempt": 1, "position": "center", "size": "small", "distance_done": 3.735933983495874, "distance_left": 4.264066016504126, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 8.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779064316.5150132, "event": "avoid_start", "attempt": 1, "steps": [{"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.475425631156261, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}]}
+{"ts": 1779064316.515158, "event": "avoid_step", "step": {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779064320.323373, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779064327.331957, "event": "avoid_step", "step": {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779064331.319218, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.475425631156261, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779064348.8273458, "event": "avoid_step", "step": {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779064352.816504, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779064359.825019, "event": "avoid_step", "step": {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779064363.634145, "event": "avoid_complete", "attempt": 1}
+{"ts": 1779064363.634327, "event": "resume", "attempt": 1, "distance_left": 4.264066016504126, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 4.264066016504126, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779064370.335663, "event": "step_complete", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 4.264066016504126, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779064370.335789, "event": "session_end"}

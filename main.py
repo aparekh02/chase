@@ -1,5 +1,14 @@
 import cadenza
-from cadenza.robots.go1 import MODEL_XML
+from cadenza.inference import ChainOfThought
+from cadenza._assets import ensure_robot_assets
+
+MODEL_XML = ensure_robot_assets("go1") / "scene.xml"
+
+#Main physical AI/sensor models
+from VisualSensor import VisualSensor as img
+from SmolVLA import VLA
+
+#basic/fundamental libraries
 import random
 
 ANGLE_DEG = 20
@@ -48,3 +57,18 @@ for _ in range(30):
 # cadenza.view(robot="go1", scene=scene)
 xml_path = scene.compile(MODEL_XML, "disaster_scene.xml")
 
+go1 = cadenza.go1(
+    xml_path="disaster_scene.xml",
+    inference=ChainOfThought(
+        logging="sequential_run.jsonl",
+    ),
+)
+
+go1.setup(
+    model=VLA(),
+    sense=[img()],
+)
+
+go1.run(
+    goal="move towards the the group of slopes and boxes in front of you. then navigate the perimeter of the entire system, continuously going right around the entire perimeter. YOUR GOAL IS TO FIND THE SPHERES WITHIN THE SCENE, which are seperated around the group of stuff. When you see one, sit down. then stand up and continue looking for more.",
+)
