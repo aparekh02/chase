@@ -355,3 +355,275 @@
 {"ts": 1779234782.16458, "event": "infer_pending", "tick": 79, "repeating": "stand_up", "repeat": 43}
 {"ts": 1779234782.1646369, "event": "done", "reason": "max_steps_reached"}
 {"ts": 1779242287.53163, "event": "session_end"}
+{"ts": 1779326185.153791, "event": "session_start", "robot": "go1", "goal": "You drive a Unitree Go1 quadruped one action per tick. Pick exactly ONE action per tick using ONLY the current observation \u2014 you have NO memory of previous ticks. Forward direction is -x (walking forward decreases pos.x).\n\nTRUST THE SCORES, NOT YOUR OWN VISUAL JUDGMENT. The observation includes sphere_visible_score and obstacle_close_score, produced by a dedicated zero-shot CLIP detector. Those numbers are reliable; do NOT second-guess them by looking at the image yourself.\n\nDECISION RULES (check in order; first match wins):\n1. If body_height < 0.30 m: call stand_up (robot is recovering from a sit pose).\n2. If sphere_visible_score > 0.65: call sit (a colored ball is in view; acknowledge it; rule 1 will stand back up next tick).\n3. If obstacle_close_score > 0.65: call walk_backward with distance_m=0.4 (something is blocking the path).\n4. If pos.x > -2.0: call walk_forward with distance_m=0.4 (still near spawn, advance into the scene).\n5. Otherwise: call side_step_right with distance_m=0.4 (default exploration motion \u2014 strafe right in a wide loop).\n\nFORBIDDEN ACTIONS: never call turn_left, turn_right, precision_turn_left, precision_turn_right, jump, bound_forward, rear_kick, shake_hand, or lie_down. The robot must never spin in place or turn around.", "target": null}
+{"ts": 1779326187.786912, "event": "execute_start", "tick": 0, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 0}
+{"ts": 1779326191.4580438, "event": "execute_done", "tick": 0, "action": "walk_forward", "elapsed_s": 3.671}
+{"ts": 1779326191.458224, "event": "infer_picked", "tick": 0, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326192.442951, "event": "execute_start", "tick": 1, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 1}
+{"ts": 1779326196.15516, "event": "execute_done", "tick": 1, "action": "walk_forward", "elapsed_s": 3.712}
+{"ts": 1779326196.156186, "event": "infer_picked", "tick": 1, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "wait_s": 0.0}
+{"ts": 1779326198.241076, "event": "execute_start", "tick": 2, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 0}
+{"ts": 1779326205.7632341, "event": "execute_done", "tick": 2, "action": "stand_up", "elapsed_s": 7.522}
+{"ts": 1779326205.764794, "event": "infer_picked", "tick": 2, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "wait_s": 0.0}
+{"ts": 1779326206.155902, "event": "execute_start", "tick": 3, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 1}
+{"ts": 1779326213.6731122, "event": "execute_done", "tick": 3, "action": "stand_up", "elapsed_s": 7.517}
+{"ts": 1779326213.6738791, "event": "infer_picked", "tick": 3, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "wait_s": 0.0}
+{"ts": 1779326214.3527749, "event": "execute_start", "tick": 4, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 2}
+{"ts": 1779326221.89621, "event": "execute_done", "tick": 4, "action": "stand_up", "elapsed_s": 7.543}
+{"ts": 1779326221.897213, "event": "infer_pending", "tick": 4, "repeating": "stand_up", "repeat": 3}
+{"ts": 1779326221.897452, "event": "execute_start", "tick": 5, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 3}
+{"ts": 1779326229.410944, "event": "execute_done", "tick": 5, "action": "stand_up", "elapsed_s": 7.514}
+{"ts": 1779326229.41126, "event": "infer_picked", "tick": 5, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "wait_s": 0.0}
+{"ts": 1779326229.834372, "event": "execute_start", "tick": 6, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 4}
+{"ts": 1779326237.359242, "event": "execute_done", "tick": 6, "action": "stand_up", "elapsed_s": 7.523}
+{"ts": 1779326237.359869, "event": "infer_pending", "tick": 6, "repeating": "stand_up", "repeat": 5}
+{"ts": 1779326237.359993, "event": "execute_start", "tick": 7, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 5}
+{"ts": 1779326244.875052, "event": "execute_done", "tick": 7, "action": "stand_up", "elapsed_s": 7.515}
+{"ts": 1779326244.878067, "event": "infer_picked", "tick": 7, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "wait_s": 0.0}
+{"ts": 1779326247.993552, "event": "execute_start", "tick": 8, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 6}
+{"ts": 1779326255.5094059, "event": "execute_done", "tick": 8, "action": "stand_up", "elapsed_s": 7.516}
+{"ts": 1779326255.510512, "event": "infer_picked", "tick": 8, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "wait_s": 0.0}
+{"ts": 1779326256.413729, "event": "execute_start", "tick": 9, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 7}
+{"ts": 1779326263.931726, "event": "execute_done", "tick": 9, "action": "stand_up", "elapsed_s": 7.517}
+{"ts": 1779326263.93393, "event": "infer_pending", "tick": 9, "repeating": "stand_up", "repeat": 8}
+{"ts": 1779326263.934047, "event": "execute_start", "tick": 10, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 8}
+{"ts": 1779326271.4461288, "event": "execute_done", "tick": 10, "action": "stand_up", "elapsed_s": 7.512}
+{"ts": 1779326271.446281, "event": "infer_pending", "tick": 10, "repeating": "stand_up", "repeat": 9}
+{"ts": 1779326271.446315, "event": "execute_start", "tick": 11, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 9}
+{"ts": 1779326278.96299, "event": "execute_done", "tick": 11, "action": "stand_up", "elapsed_s": 7.517}
+{"ts": 1779326278.9641411, "event": "infer_picked", "tick": 11, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "wait_s": 0.0}
+{"ts": 1779326279.301677, "event": "execute_start", "tick": 12, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 10}
+{"ts": 1779326286.815539, "event": "execute_done", "tick": 12, "action": "stand_up", "elapsed_s": 7.514}
+{"ts": 1779326286.8156118, "event": "infer_pending", "tick": 12, "repeating": "stand_up", "repeat": 11}
+{"ts": 1779326286.815636, "event": "execute_start", "tick": 13, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "rationale": "groq: stand_up({'duration_s': 0, 'extension': 1, 'repeat': 1, 'speed': 1})", "repeat": 11}
+{"ts": 1779326289.3774562, "event": "execute_done", "tick": 13, "action": "stand_up", "elapsed_s": 2.562}
+{"ts": 1779326289.377671, "event": "infer_picked", "tick": 13, "action": "stand_up", "params": {"duration_s": 0, "extension": 1, "repeat": 1, "speed": 1}, "wait_s": 0.0}
+{"ts": 1779326289.377697, "event": "done", "reason": "viewer_closed"}
+{"ts": 1779326289.4176059, "event": "session_end"}
+{"ts": 1779326640.60398, "event": "session_start", "robot": "go1", "goal": "Drive a Unitree Go1 quadruped. Pick ONE action per tick using ONLY the observation values below \u2014 no visual judgment, no memory of previous ticks. Forward direction is -x (walking forward decreases pos.x).\n\nRULES (apply in order, first match wins):\n1. obstacle_close_score > 0.65  \u2192 walk_backward (distance_m=0.4)\n2. pos.x > -2.0                 \u2192 walk_forward  (distance_m=0.4)\n3. otherwise                    \u2192 side_step_right (distance_m=0.4)\n\nONLY use those three actions. Do not call sit, stand_up, turn_left, turn_right, or anything else. The robot must never sit, never spin, never turn around. Trust the scores in the observation.", "target": null}
+{"ts": 1779326642.605014, "event": "execute_start", "tick": 0, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 0}
+{"ts": 1779326646.269797, "event": "execute_done", "tick": 0, "action": "walk_forward", "elapsed_s": 3.665}
+{"ts": 1779326646.2700229, "event": "infer_picked", "tick": 0, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326646.365694, "event": "execute_start", "tick": 1, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 1}
+{"ts": 1779326650.032151, "event": "execute_done", "tick": 1, "action": "walk_forward", "elapsed_s": 3.666}
+{"ts": 1779326650.032442, "event": "infer_picked", "tick": 1, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326650.153176, "event": "execute_start", "tick": 2, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 2}
+{"ts": 1779326653.8425658, "event": "execute_done", "tick": 2, "action": "walk_forward", "elapsed_s": 3.689}
+{"ts": 1779326653.842826, "event": "infer_picked", "tick": 2, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326653.979242, "event": "execute_start", "tick": 3, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 3}
+{"ts": 1779326653.981481, "event": "execute_done", "tick": 3, "action": "walk_forward", "elapsed_s": 0.002}
+{"ts": 1779326653.98227, "event": "infer_pending", "tick": 3, "repeating": "walk_forward", "repeat": 4}
+{"ts": 1779326653.9824388, "event": "done", "reason": "viewer_closed"}
+{"ts": 1779326653.9974809, "event": "session_end"}
+{"ts": 1779326673.837918, "event": "session_start", "robot": "go1", "goal": "Drive a Unitree Go1 quadruped. Pick ONE action per tick using ONLY the observation values below \u2014 no visual judgment, no memory of previous ticks. Forward direction is -x (walking forward decreases pos.x).\n\nRULES (apply in order, first match wins):\n1. obstacle_close_score > 0.65  \u2192 walk_backward (distance_m=0.4)\n2. pos.x > -2.0                 \u2192 walk_forward  (distance_m=0.4)\n3. otherwise                    \u2192 side_step_right (distance_m=0.4)\n\nONLY use those three actions. Do not call sit, stand_up, turn_left, turn_right, or anything else. The robot must never sit, never spin, never turn around. Trust the scores in the observation.", "target": null}
+{"ts": 1779326677.261874, "event": "execute_start", "tick": 0, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 0}
+{"ts": 1779326680.935152, "event": "execute_done", "tick": 0, "action": "walk_forward", "elapsed_s": 3.673}
+{"ts": 1779326680.935394, "event": "infer_pending", "tick": 0, "repeating": "walk_forward", "repeat": 1}
+{"ts": 1779326680.9354408, "event": "execute_start", "tick": 1, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 1}
+{"ts": 1779326684.60344, "event": "execute_done", "tick": 1, "action": "walk_forward", "elapsed_s": 3.668}
+{"ts": 1779326684.603638, "event": "infer_pending", "tick": 1, "repeating": "walk_forward", "repeat": 2}
+{"ts": 1779326684.6036968, "event": "execute_start", "tick": 2, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 2}
+{"ts": 1779326688.272056, "event": "execute_done", "tick": 2, "action": "walk_forward", "elapsed_s": 3.668}
+{"ts": 1779326688.272164, "event": "infer_pending", "tick": 2, "repeating": "walk_forward", "repeat": 3}
+{"ts": 1779326688.2721899, "event": "execute_start", "tick": 3, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 3}
+{"ts": 1779326691.9361842, "event": "execute_done", "tick": 3, "action": "walk_forward", "elapsed_s": 3.664}
+{"ts": 1779326691.9363992, "event": "infer_pending", "tick": 3, "repeating": "walk_forward", "repeat": 4}
+{"ts": 1779326691.936509, "event": "execute_start", "tick": 4, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 4}
+{"ts": 1779326695.605807, "event": "execute_done", "tick": 4, "action": "walk_forward", "elapsed_s": 3.669}
+{"ts": 1779326695.60621, "event": "infer_picked", "tick": 4, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326695.865153, "event": "execute_start", "tick": 5, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 5}
+{"ts": 1779326699.53104, "event": "execute_done", "tick": 5, "action": "walk_forward", "elapsed_s": 3.666}
+{"ts": 1779326699.531154, "event": "infer_pending", "tick": 5, "repeating": "walk_forward", "repeat": 6}
+{"ts": 1779326699.5311801, "event": "execute_start", "tick": 6, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 6}
+{"ts": 1779326703.196159, "event": "execute_done", "tick": 6, "action": "walk_forward", "elapsed_s": 3.665}
+{"ts": 1779326703.196453, "event": "infer_pending", "tick": 6, "repeating": "walk_forward", "repeat": 7}
+{"ts": 1779326703.196506, "event": "execute_start", "tick": 7, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 7}
+{"ts": 1779326706.8625972, "event": "execute_done", "tick": 7, "action": "walk_forward", "elapsed_s": 3.666}
+{"ts": 1779326706.862769, "event": "infer_picked", "tick": 7, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326706.946125, "event": "execute_start", "tick": 8, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 8}
+{"ts": 1779326710.6148028, "event": "execute_done", "tick": 8, "action": "walk_forward", "elapsed_s": 3.669}
+{"ts": 1779326710.614932, "event": "infer_pending", "tick": 8, "repeating": "walk_forward", "repeat": 9}
+{"ts": 1779326710.6149602, "event": "execute_start", "tick": 9, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 9}
+{"ts": 1779326714.2810712, "event": "execute_done", "tick": 9, "action": "walk_forward", "elapsed_s": 3.666}
+{"ts": 1779326714.281513, "event": "infer_pending", "tick": 9, "repeating": "walk_forward", "repeat": 10}
+{"ts": 1779326714.281548, "event": "execute_start", "tick": 10, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 10}
+{"ts": 1779326717.951197, "event": "execute_done", "tick": 10, "action": "walk_forward", "elapsed_s": 3.67}
+{"ts": 1779326717.951442, "event": "infer_pending", "tick": 10, "repeating": "walk_forward", "repeat": 11}
+{"ts": 1779326717.951513, "event": "execute_start", "tick": 11, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 11}
+{"ts": 1779326721.61994, "event": "execute_done", "tick": 11, "action": "walk_forward", "elapsed_s": 3.668}
+{"ts": 1779326721.620091, "event": "infer_pending", "tick": 11, "repeating": "walk_forward", "repeat": 12}
+{"ts": 1779326721.6201332, "event": "execute_start", "tick": 12, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 12}
+{"ts": 1779326725.284748, "event": "execute_done", "tick": 12, "action": "walk_forward", "elapsed_s": 3.665}
+{"ts": 1779326725.2849898, "event": "infer_picked", "tick": 12, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326725.58472, "event": "execute_start", "tick": 13, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 13}
+{"ts": 1779326729.2543051, "event": "execute_done", "tick": 13, "action": "walk_forward", "elapsed_s": 3.67}
+{"ts": 1779326729.254396, "event": "infer_pending", "tick": 13, "repeating": "walk_forward", "repeat": 14}
+{"ts": 1779326729.25442, "event": "execute_start", "tick": 14, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 14}
+{"ts": 1779326732.9224918, "event": "execute_done", "tick": 14, "action": "walk_forward", "elapsed_s": 3.668}
+{"ts": 1779326732.9225888, "event": "infer_pending", "tick": 14, "repeating": "walk_forward", "repeat": 15}
+{"ts": 1779326732.922611, "event": "execute_start", "tick": 15, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 15}
+{"ts": 1779326736.591739, "event": "execute_done", "tick": 15, "action": "walk_forward", "elapsed_s": 3.669}
+{"ts": 1779326736.5919209, "event": "infer_pending", "tick": 15, "repeating": "walk_forward", "repeat": 16}
+{"ts": 1779326736.591957, "event": "execute_start", "tick": 16, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 16}
+{"ts": 1779326740.259733, "event": "execute_done", "tick": 16, "action": "walk_forward", "elapsed_s": 3.668}
+{"ts": 1779326740.2599092, "event": "infer_picked", "tick": 16, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326740.497003, "event": "execute_start", "tick": 17, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 17}
+{"ts": 1779326744.166226, "event": "execute_done", "tick": 17, "action": "walk_forward", "elapsed_s": 3.669}
+{"ts": 1779326744.166368, "event": "infer_pending", "tick": 17, "repeating": "walk_forward", "repeat": 18}
+{"ts": 1779326744.166396, "event": "execute_start", "tick": 18, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 18}
+{"ts": 1779326747.830764, "event": "execute_done", "tick": 18, "action": "walk_forward", "elapsed_s": 3.664}
+{"ts": 1779326747.8308659, "event": "infer_pending", "tick": 18, "repeating": "walk_forward", "repeat": 19}
+{"ts": 1779326747.830892, "event": "execute_start", "tick": 19, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 19}
+{"ts": 1779326751.499147, "event": "execute_done", "tick": 19, "action": "walk_forward", "elapsed_s": 3.668}
+{"ts": 1779326751.499292, "event": "infer_pending", "tick": 19, "repeating": "walk_forward", "repeat": 20}
+{"ts": 1779326751.499326, "event": "execute_start", "tick": 20, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 20}
+{"ts": 1779326755.167962, "event": "execute_done", "tick": 20, "action": "walk_forward", "elapsed_s": 3.669}
+{"ts": 1779326755.1681259, "event": "infer_picked", "tick": 20, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326755.361658, "event": "execute_start", "tick": 21, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 21}
+{"ts": 1779326759.027783, "event": "execute_done", "tick": 21, "action": "walk_forward", "elapsed_s": 3.666}
+{"ts": 1779326759.02791, "event": "infer_pending", "tick": 21, "repeating": "walk_forward", "repeat": 22}
+{"ts": 1779326759.027943, "event": "execute_start", "tick": 22, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 22}
+{"ts": 1779326762.692436, "event": "execute_done", "tick": 22, "action": "walk_forward", "elapsed_s": 3.664}
+{"ts": 1779326762.692565, "event": "infer_pending", "tick": 22, "repeating": "walk_forward", "repeat": 23}
+{"ts": 1779326762.6925938, "event": "execute_start", "tick": 23, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 23}
+{"ts": 1779326766.3608918, "event": "execute_done", "tick": 23, "action": "walk_forward", "elapsed_s": 3.668}
+{"ts": 1779326766.361026, "event": "infer_pending", "tick": 23, "repeating": "walk_forward", "repeat": 24}
+{"ts": 1779326766.361057, "event": "execute_start", "tick": 24, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 24}
+{"ts": 1779326770.0294468, "event": "execute_done", "tick": 24, "action": "walk_forward", "elapsed_s": 3.668}
+{"ts": 1779326770.029597, "event": "infer_picked", "tick": 24, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326770.109496, "event": "execute_start", "tick": 25, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 25}
+{"ts": 1779326773.778122, "event": "execute_done", "tick": 25, "action": "walk_forward", "elapsed_s": 3.669}
+{"ts": 1779326773.7783282, "event": "infer_pending", "tick": 25, "repeating": "walk_forward", "repeat": 26}
+{"ts": 1779326773.7783601, "event": "execute_start", "tick": 26, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 26}
+{"ts": 1779326777.4441931, "event": "execute_done", "tick": 26, "action": "walk_forward", "elapsed_s": 3.666}
+{"ts": 1779326777.444329, "event": "infer_pending", "tick": 26, "repeating": "walk_forward", "repeat": 27}
+{"ts": 1779326777.4443588, "event": "execute_start", "tick": 27, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 27}
+{"ts": 1779326781.112743, "event": "execute_done", "tick": 27, "action": "walk_forward", "elapsed_s": 3.668}
+{"ts": 1779326781.112844, "event": "infer_pending", "tick": 27, "repeating": "walk_forward", "repeat": 28}
+{"ts": 1779326781.112871, "event": "execute_start", "tick": 28, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 28}
+{"ts": 1779326784.781149, "event": "execute_done", "tick": 28, "action": "walk_forward", "elapsed_s": 3.668}
+{"ts": 1779326784.781257, "event": "infer_picked", "tick": 28, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326784.863899, "event": "execute_start", "tick": 29, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 29}
+{"ts": 1779326788.531147, "event": "execute_done", "tick": 29, "action": "walk_forward", "elapsed_s": 3.667}
+{"ts": 1779326788.531235, "event": "infer_pending", "tick": 29, "repeating": "walk_forward", "repeat": 30}
+{"ts": 1779326788.531256, "event": "execute_start", "tick": 30, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 30}
+{"ts": 1779326792.1924858, "event": "execute_done", "tick": 30, "action": "walk_forward", "elapsed_s": 3.661}
+{"ts": 1779326792.192564, "event": "infer_pending", "tick": 30, "repeating": "walk_forward", "repeat": 31}
+{"ts": 1779326792.192589, "event": "execute_start", "tick": 31, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 31}
+{"ts": 1779326795.861977, "event": "execute_done", "tick": 31, "action": "walk_forward", "elapsed_s": 3.669}
+{"ts": 1779326795.862296, "event": "infer_pending", "tick": 31, "repeating": "walk_forward", "repeat": 32}
+{"ts": 1779326795.8624032, "event": "execute_start", "tick": 32, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 32}
+{"ts": 1779326799.531162, "event": "execute_done", "tick": 32, "action": "walk_forward", "elapsed_s": 3.669}
+{"ts": 1779326799.531321, "event": "infer_picked", "tick": 32, "action": "walk_forward", "params": {"distance_m": 0.4}, "wait_s": 0.0}
+{"ts": 1779326799.872256, "event": "execute_start", "tick": 33, "action": "walk_forward", "params": {"distance_m": 0.4}, "rationale": "groq: walk_forward({'distance_m': 0.4})", "repeat": 33}
+{"ts": 1779326799.872875, "event": "execute_done", "tick": 33, "action": "walk_forward", "elapsed_s": 0.001}
+{"ts": 1779326799.875178, "event": "infer_pending", "tick": 33, "repeating": "walk_forward", "repeat": 34}
+{"ts": 1779326799.8767529, "event": "done", "reason": "viewer_closed"}
+{"ts": 1779326799.892656, "event": "session_end"}
+{"ts": 1779327496.9175942, "event": "session_start", "robot": "go1"}
+{"ts": 1779327497.7500749, "event": "step_start", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 4.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327540.61427, "event": "detect", "attempt": 1, "position": "center", "size": "small", "distance_done": 3.735933983495874, "distance_left": 0.2640660165041262, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 4.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327540.614851, "event": "avoid_start", "attempt": 1, "steps": [{"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.475425631156261, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}]}
+{"ts": 1779327540.6150131, "event": "avoid_step", "step": {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327544.423292, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327551.428452, "event": "avoid_step", "step": {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327555.417933, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.475425631156261, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327572.926223, "event": "avoid_step", "step": {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327576.916188, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327583.924418, "event": "avoid_step", "step": {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327587.731395, "event": "avoid_complete", "attempt": 1}
+{"ts": 1779327587.732565, "event": "resume", "attempt": 1, "distance_left": 0.2640660165041262, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.2640660165041262, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327590.501405, "event": "step_complete", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.2640660165041262, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327590.5015821, "event": "step_start", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 3.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327603.177349, "event": "step_complete", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 3.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327603.177726, "event": "session_end"}
+{"ts": 1779327615.123498, "event": "session_start", "robot": "go1"}
+{"ts": 1779327615.817348, "event": "step_start", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 4.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327659.8456252, "event": "detect", "attempt": 1, "position": "center", "size": "small", "distance_done": 3.735933983495874, "distance_left": 0.2640660165041262, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 4.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327659.8467772, "event": "avoid_start", "attempt": 1, "steps": [{"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.475425631156261, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}]}
+{"ts": 1779327659.847064, "event": "avoid_step", "step": {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327663.6562428, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327670.664938, "event": "avoid_step", "step": {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779327673.925941, "event": "session_end"}
+{"ts": 1779328023.823713, "event": "session_start", "robot": "go1"}
+{"ts": 1779328024.607708, "event": "step_start", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 4.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328048.016232, "event": "detect", "attempt": 1, "position": "sphere", "size": "sphere", "distance_done": 3.420855213803451, "distance_left": 0.5791447861965491, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 4.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328048.0170019, "event": "avoid_start", "attempt": 1, "steps": [{"name": "sit", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "stand_up", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}]}
+{"ts": 1779328048.017175, "event": "avoid_step", "step": {"name": "sit", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328052.0299299, "event": "avoid_step", "step": {"name": "stand_up", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328059.542026, "event": "avoid_complete", "attempt": 1}
+{"ts": 1779328059.543046, "event": "resume", "attempt": 1, "distance_left": 0.5791447861965491, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.5791447861965491, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328083.701169, "event": "detect", "attempt": 2, "position": "center", "size": "small", "distance_done": 0.40510127531882967, "distance_left": 0.1740435108777194, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.5791447861965491, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328083.7019038, "event": "avoid_start", "attempt": 2, "steps": [{"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.377881744254718, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}]}
+{"ts": 1779328083.7022898, "event": "avoid_step", "step": {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328087.513207, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328094.5195289, "event": "avoid_step", "step": {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328098.5084789, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.377881744254718, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328115.3597922, "event": "avoid_step", "step": {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328119.349161, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328126.3588202, "event": "avoid_step", "step": {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328130.161244, "event": "avoid_complete", "attempt": 2}
+{"ts": 1779328130.161459, "event": "resume", "attempt": 2, "distance_left": 0.1740435108777194, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.1740435108777194, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328132.32382, "event": "step_complete", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.1740435108777194, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328132.324137, "event": "step_start", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 3.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328134.723586, "event": "detect", "attempt": 1, "position": "sphere", "size": "sphere", "distance_done": 0.18, "distance_left": 2.82, "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 3.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328134.7238069, "event": "avoid_start", "attempt": 1, "steps": [{"name": "sit", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "stand_up", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}]}
+{"ts": 1779328134.723884, "event": "avoid_step", "step": {"name": "sit", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328138.736701, "event": "avoid_step", "step": {"name": "stand_up", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328146.247158, "event": "avoid_complete", "attempt": 1}
+{"ts": 1779328146.247318, "event": "resume", "attempt": 1, "distance_left": 2.82, "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 2.82, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328169.334645, "event": "detect", "attempt": 2, "position": "left", "size": "small", "distance_done": 0.21014904187366926, "distance_left": 2.6098509581263305, "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 2.82, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328169.3358772, "event": "avoid_start", "attempt": 2, "steps": [{"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.597823656614293, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}]}
+{"ts": 1779328169.336182, "event": "avoid_step", "step": {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328173.1424189, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328180.144406, "event": "avoid_step", "step": {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328184.131941, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.597823656614293, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328202.436459, "event": "avoid_step", "step": {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328206.424931, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328213.431859, "event": "avoid_step", "step": {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328217.236612, "event": "avoid_complete", "attempt": 2}
+{"ts": 1779328217.237588, "event": "resume", "attempt": 2, "distance_left": 2.6098509581263305, "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 2.6098509581263305, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328241.756617, "event": "detect", "attempt": 3, "position": "right", "size": "small", "distance_done": 0.15010645848119233, "distance_left": 2.4597444996451383, "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 2.6098509581263305, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328241.757163, "event": "avoid_start", "attempt": 3, "steps": [{"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 1.9563568423847515, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}, {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}]}
+{"ts": 1779328241.757409, "event": "avoid_step", "step": {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328245.746498, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328252.749739, "event": "avoid_step", "step": {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328256.558866, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 1.9563568423847515, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328270.6074328, "event": "avoid_step", "step": {"name": "turn_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328274.415175, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.9, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328281.424132, "event": "avoid_step", "step": {"name": "turn_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328285.410402, "event": "avoid_complete", "attempt": 3}
+{"ts": 1779328285.4107862, "event": "resume", "attempt": 3, "distance_left": 2.4597444996451383, "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 2.4597444996451383, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328310.998143, "event": "step_complete", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 2.4597444996451383, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328310.998733, "event": "step_start", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 3.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328324.3647091, "event": "step_complete", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 3.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779328324.365068, "event": "session_end"}
+{"ts": 1779329346.882206, "event": "session_start", "robot": "go1"}
+{"ts": 1779329347.713616, "event": "step_start", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 4.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329371.124439, "event": "detect", "attempt": 1, "position": "sphere", "size": "sphere", "distance_done": 3.420855213803451, "distance_left": 0.5791447861965491, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 4.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329371.125702, "event": "avoid_start", "attempt": 1, "steps": [{"name": "sit", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}, {"name": "stand_up", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}]}
+{"ts": 1779329371.125813, "event": "avoid_step", "step": {"name": "sit", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329375.134082, "event": "avoid_step", "step": {"name": "stand_up", "speed": 1.0, "extension": 1.0, "distance_m": 0.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329382.650825, "event": "avoid_complete", "attempt": 1}
+{"ts": 1779329382.651787, "event": "resume", "attempt": 1, "distance_left": 0.5791447861965491, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.5791447861965491, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329407.59059, "event": "detect", "attempt": 2, "position": "center", "size": "small", "distance_done": 0.40510127531882967, "distance_left": 0.1740435108777194, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.5791447861965491, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329407.591279, "event": "avoid_start", "attempt": 2, "steps": [{"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.8, "rotation_rad": 0.0, "repeat": 1}, {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 1.2, "rotation_rad": 0.0, "repeat": 1}, {"name": "side_step_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.8, "rotation_rad": 0.0, "repeat": 1}]}
+{"ts": 1779329407.591454, "event": "avoid_step", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 0.8, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329416.595781, "event": "avoid_step", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 1.2, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329425.605153, "event": "avoid_step", "step": {"name": "side_step_left", "speed": 1.0, "extension": 1.0, "distance_m": 0.8, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329434.613736, "event": "avoid_complete", "attempt": 2}
+{"ts": 1779329434.613914, "event": "resume", "attempt": 2, "distance_left": 0.1740435108777194, "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.1740435108777194, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329437.15871, "event": "step_complete", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 0.1740435108777194, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329437.159225, "event": "step_start", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 3.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329468.1669729, "event": "step_complete", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 3.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329468.167945, "event": "step_start", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 3.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329482.2963572, "event": "step_complete", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 3.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779329482.296934, "event": "session_end"}
+{"ts": 1779332639.3595068, "event": "session_start", "robot": "go1"}
+{"ts": 1779332640.1496818, "event": "step_start", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.5, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779332657.814013, "event": "step_complete", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.5, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779332657.8145778, "event": "step_start", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 1.5, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779332673.820823, "event": "step_complete", "step": {"name": "side_step_right", "speed": 1.0, "extension": 1.0, "distance_m": 1.5, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779332673.821271, "event": "step_start", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779332686.8604228, "event": "step_complete", "step": {"name": "walk_forward", "speed": 1.0, "extension": 1.0, "distance_m": 2.0, "rotation_rad": 0.0, "repeat": 1}}
+{"ts": 1779332686.860965, "event": "session_end"}
