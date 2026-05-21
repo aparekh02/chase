@@ -6,10 +6,12 @@ MODEL_XML = ensure_robot_assets("go1") / "scene.xml"
 
 #Main physical AI/sensor models
 from VisualSensor import VisualSensor as img
-from SmolVLA import VLA
+from LLMAdapter import LLMAdapter as VLA
 
 #basic/fundamental libraries
 import random
+from dotenv import load_dotenv
+load_dotenv()
 
 ANGLE_DEG = 20
 
@@ -57,18 +59,44 @@ for _ in range(30):
 # cadenza.view(robot="go1", scene=scene)
 xml_path = scene.compile(MODEL_XML, "disaster_scene.xml")
 
+GOAL = (
+    "You drive a Unitree Go1 quadruped one action per tick. Pick exactly ONE "
+    "action per tick using ONLY the current observation — you have NO memory "
+    "of previous ticks. Forward direction is -x (walking forward decreases "
+    "pos.x).\n\n"
+    "TRUST THE SCORES, NOT YOUR OWN VISUAL JUDGMENT. The observation "
+    "includes sphere_visible_score and obstacle_close_score, produced by a "
+    "dedicated zero-shot CLIP detector. Those numbers are reliable; do NOT "
+    "second-guess them by looking at the image yourself.\n\n"
+    "DECISION RULES (check in order; first match wins):\n"
+    "1. If body_height < 0.30 m: call stand_up (robot is recovering from "
+    "a sit pose).\n"
+    "2. If sphere_visible_score > 0.65: call sit (a colored ball is in "
+    "view; acknowledge it; rule 1 will stand back up next tick).\n"
+    "3. If obstacle_close_score > 0.65: call walk_backward with "
+    "distance_m=0.4 (something is blocking the path).\n"
+    "4. If pos.x > -2.0: call walk_forward with distance_m=0.4 (still "
+    "near spawn, advance into the scene).\n"
+    "5. Otherwise: call side_step_right with distance_m=0.4 (default "
+    "exploration motion — strafe right in a wide loop).\n\n"
+    "FORBIDDEN ACTIONS: never call turn_left, turn_right, "
+    "precision_turn_left, precision_turn_right, jump, bound_forward, "
+    "rear_kick, shake_hand, or lie_down. The robot must never spin in "
+    "place or turn around."
+)
+
+# ChainOfThought owns the model + modalities + goal. go1.run() is given a
+# trigger step; CoT takes over from the first tick and drives every action
+# from there. (The goal-mode path go1.run(goal=...) would bypass CoT
+# entirely, which is why the visual sensor never got set up before.)
 go1 = cadenza.go1(
     xml_path="disaster_scene.xml",
     inference=ChainOfThought(
+        model=VLA(),
+        sense=[img()],
+        goal=GOAL,
         logging="sequential_run.jsonl",
     ),
 )
 
-go1.setup(
-    model=VLA(),
-    sense=[img()],
-)
-
-go1.run(
-    goal="move towards the the group of slopes and boxes in front of you. then navigate the perimeter of the entire system, continuously going right around the entire perimeter. YOUR GOAL IS TO FIND THE SPHERES WITHIN THE SCENE, which are seperated around the group of stuff. When you see one, sit down. then stand up and continue looking for more.",
-)
+go1.run([go1.walk_forward()])
