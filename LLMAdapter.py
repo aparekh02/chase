@@ -60,6 +60,8 @@ class LLMAdapter(WorldModelAdapter):
         api_key: str | None = None,
         max_tokens: int = 512,
         jpeg_quality: int = 80,
+        stuck_window: int = 3,
+        stuck_disp_m: float = 0.08,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -75,6 +77,38 @@ class LLMAdapter(WorldModelAdapter):
         self.client: Groq | None = None
         self._tools_cache: list[dict] | None = None
         self._diag_logged: bool = False
+
+        # Self-contained progress tracking: surface a "you are stuck" alert in
+        # the prompt so the model doesn't repeat a useless action forever. This
+        # is a feature of THIS adapter — no external state, no cadenza-api.
+        self.stuck_window = int(stuck_window)
+        self.stuck_disp_m = float(stuck_disp_m)
+        self._pos_history: list[tuple[float, float]] = []
+        self._last_action: str | None = None
+        self._repeat_count: int = 0
+
+    def _progress_alert(self, observation: dict) -> str:
+        """Build a 'you are stuck' alert from recent displacement + action repeats."""
+        pos = observation.get("pos") or [0.0, 0.0, 0.0]
+        xy = (float(pos[0]), float(pos[1]))
+        self._pos_history.append(xy)
+        self._pos_history = self._pos_history[-(self.stuck_window + 1):]
+        if len(self._pos_history) <= self.stuck_window:
+            return ""
+        first = self._pos_history[0]
+        disp = ((xy[0] - first[0]) ** 2 + (xy[1] - first[1]) ** 2) ** 0.5
+        if disp < self.stuck_disp_m:
+            return (
+                f"\n\n⚠ NO-PROGRESS ALERT: you have moved only {disp:.2f} m over "
+                f"the last {self.stuck_window} ticks"
+                + (f" while repeating '{self._last_action}' {self._repeat_count}× in a row"
+                   if self._repeat_count >= 2 else "")
+                + ". Whatever you just did is NOT working. Do NOT repeat it. Pick a "
+                "DIFFERENT action: turn_left/turn_right to change heading, "
+                "crawl_forward to get through tight/low debris, or walk_backward "
+                "to back out and try another route."
+            )
+        return ""
 
     @classmethod
     def detect(cls, root: Path) -> Path | None:
@@ -140,6 +174,9 @@ class LLMAdapter(WorldModelAdapter):
         lines.append("")
         lines.append("Call exactly one tool to decide the next action.")
         text = "\n".join(lines)
+        # Self-contained no-progress alert — keeps the model from looping on a
+        # useless action. Purely internal to this adapter.
+        text += self._progress_alert(observation)
 
         content: list[dict] = [{"type": "text", "text": text}]
         cam = observation.get("camera")
@@ -259,6 +296,7 @@ class LLMAdapter(WorldModelAdapter):
         except Exception as e:
             rescued = self._rescue_from_error(e, vocabulary)
             if rescued is not None:
+                self._track(rescued.actions[0].name if rescued.actions else None)
                 return rescued
             return self._fallback(f"groq error: {e}")
 
@@ -277,6 +315,7 @@ class LLMAdapter(WorldModelAdapter):
         if name not in vocabulary:
             return self._fallback(f"model picked unknown action {name!r}")
 
+        self._track(name)
         return AdapterReply(
             actions=[ProposedAction(
                 name=name,
@@ -286,3 +325,11 @@ class LLMAdapter(WorldModelAdapter):
             done=False,
             note=f"{name}({params})",
         )
+
+    def _track(self, name: str | None) -> None:
+        """Update the repeated-action counter feeding the no-progress alert."""
+        if name and name == self._last_action:
+            self._repeat_count += 1
+        else:
+            self._repeat_count = 1
+        self._last_action = name

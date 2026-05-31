@@ -1,0 +1,32 @@
+{
+  "vocab": [
+    "walk_forward",
+    "crawl_forward",
+    "trot_forward",
+    "walk_backward",
+    "turn_left",
+    "turn_right",
+    "stand",
+    "stand_up",
+    "signal_sphere"
+  ],
+  "feature_names": [
+    "body_height",
+    "roll",
+    "pitch",
+    "feet_norm",
+    "sphere_visible",
+    "recent_disp"
+  ],
+  "hidden": 64,
+  "robot": "go1",
+  "n_samples": 221,
+  "llm_targets": 103,
+  "loss_before": 2.1092,
+  "loss_after": -44.6274,
+  "pg_loss": -45.5408,
+  "ce_loss": 0.9273,
+  "weight_shift": 29.7412,
+  "epochs": 60,
+  "lr": 0.02
+}

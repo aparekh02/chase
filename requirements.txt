@@ -6,3 +6,4 @@ mujoco
 torch
 Pillow
 groq
+python-dotenv
