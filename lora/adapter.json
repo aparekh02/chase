@@ -1,0 +1,34 @@
+{
+  "config": {
+    "robot": "go1",
+    "hidden_dim": 960,
+    "max_seq_len": 16,
+    "lora_rank": 8,
+    "lora_alpha": 16.0
+  },
+  "action_names": [
+    "stand",
+    "stand_up",
+    "sit",
+    "lie_down",
+    "jump",
+    "walk_forward",
+    "walk_backward",
+    "trot_forward",
+    "crawl_forward",
+    "turn_left",
+    "turn_right",
+    "precision_turn_left",
+    "precision_turn_right",
+    "climb_step",
+    "side_step_left",
+    "side_step_right",
+    "pace_forward",
+    "bound_forward",
+    "rear_up",
+    "shake_hand",
+    "rear_kick"
+  ],
+  "vision": true,
+  "format": "cadenza-lora-adapter/2"
+}

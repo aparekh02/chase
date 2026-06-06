@@ -1,0 +1,4 @@
+{"goal": "respond to what the camera shows", "actions": [{"action": "shake_hand"}], "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/green_ho_100.png"}
+{"goal": "respond to what the camera shows", "actions": [{"action": "shake_hand"}], "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/green_ho_101.png"}
+{"goal": "respond to what the camera shows", "actions": [{"action": "turn_left"}], "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/red_ho_100.png"}
+{"goal": "respond to what the camera shows", "actions": [{"action": "turn_left"}], "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/red_ho_101.png"}

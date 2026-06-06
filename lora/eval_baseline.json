@@ -1,0 +1,21 @@
+{
+  "verdict": "DEPLOY",
+  "per_goal": [
+    {
+      "goal": "respond to what the camera shows",
+      "ok": true
+    },
+    {
+      "goal": "respond to what the camera shows",
+      "ok": true
+    },
+    {
+      "goal": "respond to what the camera shows",
+      "ok": true
+    },
+    {
+      "goal": "respond to what the camera shows",
+      "ok": true
+    }
+  ]
+}
