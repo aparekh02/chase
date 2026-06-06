@@ -87,7 +87,12 @@ class SmolVLAEncoder(nn.Module):
         """
         if self._image_processor is None:
             from transformers import AutoImageProcessor
-            self._image_processor = AutoImageProcessor.from_pretrained(self._processor_id)
+            # do_image_splitting=False -> 1 tile instead of SmolVLM2's default 17,
+            # so the vision tower runs ONCE per frame, not 17×. For a single
+            # low-res robot camera frame the tiling buys nothing; this is the
+            # dominant cost of vision fine-tuning/eval, so disabling it is ~17×.
+            self._image_processor = AutoImageProcessor.from_pretrained(
+                self._processor_id, do_image_splitting=False)
         if isinstance(image, (str, bytes)) or hasattr(image, "__fspath__"):
             from PIL import Image
             image = Image.open(image).convert("RGB")

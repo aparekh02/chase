@@ -1,4 +1,4 @@
-{"goal": "respond to what the camera shows", "actions": [{"action": "shake_hand"}], "source": "pattern", "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/green_0.png"}
-{"goal": "respond to what the camera shows", "actions": [{"action": "shake_hand"}], "source": "pattern", "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/green_1.png"}
-{"goal": "respond to what the camera shows", "actions": [{"action": "turn_left"}], "source": "pattern", "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/red_0.png"}
-{"goal": "respond to what the camera shows", "actions": [{"action": "turn_left"}], "source": "pattern", "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/red_1.png"}
+{"goal": "respond to what the camera shows", "actions": [{"action": "shake_hand"}], "source": "pattern", "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/tr_green_0.png"}
+{"goal": "respond to what the camera shows", "actions": [{"action": "shake_hand"}], "source": "pattern", "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/tr_green_1.png"}
+{"goal": "respond to what the camera shows", "actions": [{"action": "turn_left"}], "source": "pattern", "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/tr_red_0.png"}
+{"goal": "respond to what the camera shows", "actions": [{"action": "turn_left"}], "source": "pattern", "image": "/Users/akshparekh/Documents/cadenza-api/chase-mission/lora/frames/tr_red_1.png"}
