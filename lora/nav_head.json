@@ -1,0 +1,10 @@
+{
+  "in_dim": 960,
+  "actions": [
+    "walk_forward",
+    "turn_left",
+    "turn_right",
+    "side_step_left",
+    "side_step_right"
+  ]
+}

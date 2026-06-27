@@ -1,0 +1,54 @@
+{
+  "name": "chase-nav",
+  "description": "Closed-loop VLA navigation: the dog must route AROUND rubble that blocks the straight line to each of three survivor spheres, and signal each when it comes into view. Flat field (cadenza-lab slopes flip the go1). Driven tick-by-tick by SmolVLA->LoRA reading the live coordinates — no hardcoded plan.",
+  "robot": "go1",
+  "spawn": [0.0, 0.0, 0.0],
+
+  "vision": {
+    "fov_deg": 90.0,
+    "max_distance_m": 4.0
+  },
+
+  "control_panel": {
+    "requires_visible_tag": "sphere",
+    "actions": {
+      "signal_sphere": "Rescue-dog to base: survivor-marker sphere in sight — holding to flag it."
+    }
+  },
+
+  "scene": {
+    "_comment_axes": "cadenza forward is -X. Spawn at origin heads into negative X along the y~0 corridor. Three spheres sit ~on the centre-line, well spaced; ONE rubble box is offset to alternating sides of each leg, close enough to the path that the closed-loop policy must steer around it (with ~0.5m berth) but not a dead-centre block that would livelock a memoryless reactive policy. Flat ground.",
+    "objects": [
+      {"type": "sphere", "tag": "sphere", "position": [-2.60,  0.00, 0.15], "radius": 0.15, "rgba": [0.92, 0.90, 0.22, 1.0]},
+      {"type": "sphere", "tag": "sphere", "position": [-5.20,  0.00, 0.15], "radius": 0.15, "rgba": [0.22, 0.90, 0.52, 1.0]},
+      {"type": "sphere", "tag": "sphere", "position": [-7.80,  0.00, 0.15], "radius": 0.15, "rgba": [0.62, 0.30, 0.82, 1.0]},
+
+      {"type": "box", "tag": "rubble", "position": [-1.35,  0.28, 0.12], "size": [0.13, 0.13, 0.12], "rgba": [0.72, 0.30, 0.22, 1.0]},
+      {"type": "box", "tag": "rubble", "position": [-3.90, -0.28, 0.12], "size": [0.13, 0.13, 0.12], "rgba": [0.72, 0.30, 0.22, 1.0]},
+      {"type": "box", "tag": "rubble", "position": [-6.50,  0.28, 0.12], "size": [0.13, 0.13, 0.12], "rgba": [0.72, 0.30, 0.22, 1.0]}
+    ],
+
+    "zones": [
+      {"name": "spawn",    "aabb": [[-0.60, -1.00, 0.0], [0.60, 1.00, 1.20]]},
+      {"name": "field",    "aabb": [[-8.20, -2.40, 0.0], [-0.60, 2.40, 1.20]]},
+      {"name": "far_side", "aabb": [[-10.0, -2.40, 0.0], [-8.20, 2.40, 1.20]]}
+    ]
+  },
+
+  "phases": [
+    {
+      "name": "navigate",
+      "goal_prompt": "navigate the debris field, steering around the rubble, and bring each survivor sphere into view",
+      "success_when": {"enter_zone": "far_side"},
+      "fail_when": {"flipped": true},
+      "reward": {
+        "step_cost": -0.02,
+        "forward_distance_gain": 0.1,
+        "fall_penalty": -3.0,
+        "phase_success_bonus": 2.0,
+        "phase_failure_penalty": -3.0
+      },
+      "max_ticks": 200
+    }
+  ]
+}

@@ -29,6 +29,6 @@
     "shake_hand",
     "rear_kick"
   ],
-  "vision": false,
+  "vision": true,
   "format": "cadenza-lora-adapter/2"
 }
